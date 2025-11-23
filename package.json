@@ -1,0 +1,23 @@
+{
+  "name": "zoo-management-monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo para o Sistema de Gerenciamento de Zoológico (API + Frontend).",
+  "main": "index.js",
+  "scripts": {
+    
+    "db:up": "npm run db:up --workspace=backend",
+    "db:down": "npm run db:down --workspace=backend",
+
+    "start:backend": "npm start --workspace=backend",
+    "start:frontend": "npm run dev --workspace=frontend",
+
+    "dev": "npm run db:up && concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
